@@ -1,0 +1,16 @@
+name: OSINT Deploy
+
+on:
+  push:
+    branches:
+      - main  # or master, if that’s your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VT_API_KEY: ${{ secrets.VT_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Example: Print masked API key
+        run: echo "Using VirusTotal API key (hidden): $VT_API_KEY"
